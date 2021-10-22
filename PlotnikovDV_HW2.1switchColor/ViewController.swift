@@ -22,22 +22,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        redSlider.value = Float.random(in: 0...1)
+        redLable.text = String(redSlider.value)
+        
+        greenSlider.value = Float.random(in: 0...1)
+        greenLable.text = String(greenSlider.value)
+        
+        blueSlider.value = Float.random(in: 0...1)
+        blueLable.text = String(blueSlider.value)
+        
+        switchBackgroundColor ()
+    }
+    
+    func switchBackgroundColor () {
+        mainLable.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
+        redLable.text = String(redSlider.value)
     }
 
     @IBAction func redSlideAction() {
-        mainLable.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
-        redLable.text = String(redSlider.value)
-        
+        switchBackgroundColor ()
     }
 
-    
     @IBAction func greenSlideAction() {
-        mainLable.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
-        greenLable.text = String(greenSlider.value)
+        switchBackgroundColor ()
     }
     
     @IBAction func blueSlideAction() {
-        mainLable.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1.0)
-        blueLable.text = String(blueSlider.value)
+        switchBackgroundColor ()
     }
 }
